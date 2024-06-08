@@ -1,11 +1,11 @@
 CXXFLAGS = -Wall -O3
 OBJ_DIR  := obj
 BIN_DIR  := bin
-TARGET = binClass
-INCLUDE = -Iinclude/
+TARGET = run
+INCLUDE = -Iinclude
 LDFLAGS = -lm -L/usr/local/lib -lboost_regex
 
-SRC     :=$(wildcard src/*.cpp)
+SRC     :=$(wildcard src/bind/*.cpp) $(wildcard src/*.cpp)
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(BIN_DIR)/$(TARGET)
