@@ -8,6 +8,7 @@
 #include <iterator>
 #include <algorithm>
 #include "bind.h"
+using namespace std;
 
 /*bind example*/
 void connect(){
@@ -25,34 +26,18 @@ void connect(){
 /*string_to_upper*/
 void string_to_upper()
 {
-    std::string orig_str = "abc";
-    std::string upper_str = boost::to_upper_copy(orig_str);
-    cout << "------------------------------" << endl;
-    cout << "boost::to_upper_copy(" <<orig_str <<") --> "<< upper_str << endl;
-    boost::to_upper_copy(orig_str);
-    cout << "Original string: " << orig_str << endl;
-
-    cout << "------------------------------" << endl;
-    cout << "boost::to_upper(" <<orig_str <<") --> "<< upper_str << endl;
-    boost::to_upper(orig_str);
-    cout << "Original string: " << orig_str << endl;
+    string s = "Boost C++ Libraries";
+    cout << s << " -> ";
+    cout << boost::to_upper_copy(s) << '\n';
 }
 
 void trim()
 {
-    cout << "------------------------------" << endl;
-    cout << "boost::trim_left()" << endl;
-
-    std::string s = "  123456789";
-    std::string s2 = "00123456789";
-
-    cout << s << "--> ";
-    boost::trim_left(s);
-    cout << s << endl;
-
-    cout << s2 << "--> ";
-    boost::trim_left_if(s2, boost::is_any_of("0"));
-    cout << s2 << endl;
+    string phone="00423333444";
+    cout << phone << " -> ";
+    // remove leading 0 from the phone number
+    boost::trim_left_if(phone, boost::is_any_of("0")); // phone == "423333444"
+    cout << phone << '\n';
 }
 
 int main(int argc, char *argv[])
